@@ -1,0 +1,14 @@
+default: &default
+  OMNIAUTH_FB_ID: '287537208097249'
+  OMNIAUTH_FB_KEY: '8df0ae267beeb3480e173560de75bda7'
+
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+  OMNIAUTH_FB_ID: '1530718867141832'
+  OMNIAUTH_FB_KEY: 'f9e2921b457444414c2e8389a4c04afa'

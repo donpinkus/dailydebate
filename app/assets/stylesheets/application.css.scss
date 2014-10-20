@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require normalize-rails
+ *= require_self
+ */
+
+@import 'compass';
+@import 'susy';
+@import 'breakpoint';
+
+@import 'global/nav_variables';
+@import 'bootstrap';
+
+$dark-text: #444;
+$medium-text: #555;
+$light-text: #999;
+
+$green: #2F97E9;
+
+$light-gray: #F9F9F9;
+$medium-gray: #EEEEEF;
+$border-gray: #DADADD;
+
+/**
+ * Global Styles
+ */
+* {
+	box-sizing: border-box;
+}
+
+.avatar {
+	border-radius: 50%;
+}
+
+#topNav {
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	.navbar-nav {
+		height: 62px;
+		.avatar {
+			margin-top: -6px;
+			border-radius: 50%;
+		}
+		.dropdown-toggle {
+			height: 62px;
+		}
+	}
+}
+
+.label.greenLabel {
+	display: inline-block;
+	background: transparent;
+	font-weight: normal;
+	border: 1px solid rgb(205, 236, 217);
+	background-color: rgb(249, 255, 251);
+	color: $light-text;
+	cursor: pointer;
+	&:hover {
+		background-color: rgb(249, 255, 251);
+		color: $light-text;
+		text-decoration: underline;
+	}
+}
