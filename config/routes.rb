@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :tags
+  resources :categories
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
-  resources :events
+  resources :comments
 
-  resources :timelines
+  resources :topics
 
-  root "timelines#index"
+  root "topics#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

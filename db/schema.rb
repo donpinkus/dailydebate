@@ -46,49 +46,43 @@ ActiveRecord::Schema.define(version: 20140905225046) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
-  create_table "events", force: true do |t|
-    t.datetime "date",        default: '2014-08-30 08:18:04'
-    t.string   "title"
-    t.text     "content"
-    t.string   "image"
-    t.text     "caption"
-    t.integer  "timeline_id"
-    t.integer  "user_id",     default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "events", ["timeline_id"], name: "index_events_on_timeline_id"
-  add_index "events", ["user_id"], name: "index_events_on_user_id"
-
-  create_table "tags", force: true do |t|
+  create_table "categories", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "timeline_tags_count", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "timeline_tags", force: true do |t|
-    t.integer  "timeline_id"
-    t.integer  "tag_id"
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "topic_id"
+    t.integer  "user_id",    default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "timeline_tags", ["tag_id"], name: "index_timeline_tags_on_tag_id"
-  add_index "timeline_tags", ["timeline_id"], name: "index_timeline_tags_on_timeline_id"
+  add_index "comments", ["topic_id"], name: "index_comments_on_topic_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
-  create_table "timelines", force: true do |t|
+  create_table "topic_categories", force: true do |t|
+    t.integer  "topic_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "topic_categories", ["category_id"], name: "index_topic_categories_on_category_id"
+  add_index "topic_categories", ["topic_id"], name: "index_topic_categories_on_topic_id"
+
+  create_table "topics", force: true do |t|
     t.integer  "user_id",     default: 0
+    t.integer  "category_id"
+    t.text     "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
-    t.text     "description"
-    t.string   "tagline"
   end
 
-  add_index "timelines", ["user_id"], name: "index_timelines_on_user_id"
+  add_index "topics", ["user_id"], name: "index_topics_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "provider"

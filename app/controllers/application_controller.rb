@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
+  # Prcomment CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :save_unsaved_events
-  before_action :save_unsaved_timelines
+  before_action :save_unsaved_comments
+  before_action :save_unsaved_topics
 
   private
 
@@ -12,27 +12,27 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def save_unsaved_events
-  	if current_user && session[:unsaved_event]
-  		@event = Event.find(session[:unsaved_event])
-  		@event.user = current_user
-  		if @event.save
-  			session[:unsaved_event] = nil
-  			redirect_to timeline_path(@event.timeline), notice: 'Event published.'
+  def save_unsaved_comments
+  	if current_user && session[:unsaved_comment]
+  		@comment = Comment.find(session[:unsaved_comment])
+  		@comment.user = current_user
+  		if @comment.save
+  			session[:unsaved_comment] = nil
+  			redirect_to topic_path(@comment.topic), notice: 'comment published.'
   		end
   	end
   end
 
-  def save_unsaved_timelines
-    if current_user && session[:unsaved_timeline]
-      @timeline = Timeline.find(session[:unsaved_timeline])
-      @timeline.user = current_user
-      if @timeline.save
-        session[:unsaved_timeline] = nil
-        redirect_to timeline_path(@timeline), notice: 'Timeline published.'
+  def save_unsaved_topics
+    if current_user && session[:unsaved_topic]
+      @topic = Topic.find(session[:unsaved_topic])
+      @topic.user = current_user
+      if @topic.save
+        session[:unsaved_topic] = nil
+        redirect_to topic_path(@topic), notice: 'topic published.'
       end
     end
   end
-  
+
   helper_method :current_user
 end
