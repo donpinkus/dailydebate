@@ -1,44 +1,42 @@
-<%= notice %>
-<br/>
+<div class="container">
+	<header class="row">
+		<div class="col-sm-12">
+			<%= notice %>
 
-<div id="topic">
-	<header>
-		<div class="btn-group pull-right">
-			<% if @topic.user == current_user %>
-				<%= link_to edit_topic_path(@topic), class: "btn btn-default btn-sm" do %>
-					<i class="glyphicon glyphicon-pencil"></i>
-					Edit
-				<% end %>
-			<% end %>
-		</div>
-
-		<h1><%= @topic.title %></h1>
-
-		<% if @topic.comments.count > 0 %>
-			<div id="navigator">
-				<div class="hovers"></div>
-				<div class="line"></div>
-				<div class="labels"></div>
-				<ul class="marks">
-					<% @topic.comments.each do |e| %>
-						<% left = ((e.date - @start_date) / @total_time_length) * 928 - 5 %>
-						<a href="#<%= e.title.parameterize %>">
-							<li style="left: <%= left %>px">
-								<small class="date <%= e.date == @start_date ? '' : 'hidden' %>">
-									<%= e.date.strftime("%B %d, %Y") %>
-								</small>
-							</li>
-						</a>
+			<div class="btn-group pull-right">
+				<% if @topic.user == current_user %>
+					<%= link_to topic_path(@topic), method: "delete", class: "btn btn-danger btn-sm" do %>
+						<i class="glyphicon glyphicon-remove"></i>
+						Delete Topic
 					<% end %>
-				</ul>
+				<% end %>
 			</div>
-		<% end %>
+
+			<h1><%= @topic.title %></h1>
+			<p><%= @topic.user.name %> &middot; <%= time_ago_in_words(@topic.created_at) %> ago</p>
+		</div>
 	</header>
-
-	<hr/>
-
-	<main>
-
+	<main class="row">
+		<div class="col-sm-6">
+			<h2 class="greenText">Agree</h2>
+			<section class="comments">
+				<%= render partial: "comment_form", locals: {is_agree: true} %>
+				<br/>
+				<% @topic.comments.where(is_agree: true).each do |c| %>
+					<%= render partial: "comment", locals: {is_agree: true, c: c} %>
+				<% end %>
+			</div>
+		</section>
+		<div class="col-sm-6">
+			<h2 class="redText">Disagree</h2>
+			<section class="comments">
+				<%= render partial: "comment_form", locals: {is_agree: false} %>
+				<br/>
+				<% @topic.comments.where(is_agree: false).each do |c| %>
+					<%= render partial: "comment", locals: {is_agree: false, c: c} %>
+				<% end %>
+			</section>
+		</div>
 	</main>
 </div>
 

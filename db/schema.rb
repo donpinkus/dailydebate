@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20140905225046) do
     t.text     "content"
     t.integer  "topic_id"
     t.integer  "user_id",    default: 0
+    t.boolean  "is_agree"
+    t.integer  "reply_to",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

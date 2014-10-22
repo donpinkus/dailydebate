@@ -1,0 +1,12 @@
+<article class="alert comment <%= is_agree ? 'agreeComment' : 'disagreeComment'%>">
+  <p class="commentInfo">
+    <i class="upvote glyphicon glyphicon-chevron-up"></i>
+    <span class="text-muted">
+      <%= link_to c.user.name, c.user %>
+      12 points
+      &middot;
+      <%= time_ago_in_words(c.created_at) %> ago
+    </span>
+  </p>
+  <%= raw(c.render_content) %>
+</article>

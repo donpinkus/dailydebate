@@ -1,0 +1,8 @@
+<%= form_for Comment.new, class: "commentForm" do |f| %>
+  <%= f.hidden_field :topic_id, value: @topic.id %>
+  <%= f.hidden_field :is_agree, value: is_agree %>
+  <div class="form-group">
+    <%= f.text_area :content, rows: 2, class: "form-control" %>
+  </div>
+  <%= f.submit class: "btn btn-small btn-primary", value: "Post" %>
+<% end %>

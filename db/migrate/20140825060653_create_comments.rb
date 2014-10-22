@@ -4,6 +4,8 @@ class CreateComments < ActiveRecord::Migration
       t.text :content
       t.references :topic, index: true
       t.references :user, index: true, default: 0
+      t.boolean :is_agree, index: true
+      t.integer :reply_to, default: 0
 
       t.timestamps
     end

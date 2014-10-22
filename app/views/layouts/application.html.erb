@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Timelino</title>
+  <title>Debate</title>
   <%= favicon_link_tag 'favicon.ico' %>
 
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= stylesheet_link_tag    params[:controller] + "_" + params[:action] %>
-  
+
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag params[:controller] %>
   <%= javascript_include_tag params[:controller] + "_" + params[:action] %>
   <%= csrf_meta_tags %>
 
-  
+
   <script type="text/javascript" src="//use.typekit.net/zdf3qbk.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 	<%= render "layouts/top_nav" %>
-  
+
 	<%= yield %>
 
   <!-- begin olark code -->
