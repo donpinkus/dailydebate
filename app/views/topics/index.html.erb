@@ -8,14 +8,14 @@
   </div>
   <div class="row">
     <div class="topicsFeed col-sm-9">
-      <h2>
+      <h3>
         <%= link_to 'Create Statement', new_topic_path, class: "btn btn-default btn-sm pull-right" %>
         Statements
-      </h2>
+      </h3>
 
       <% if params[:category] %>
         <div class="alert alert-warning categoryFilterAlert">
-          Filtered by <%= render partial: "categorys/category", locals: {category: @category, show_count: true} %>
+          Filtered by <%= render partial: "categories/category", locals: {category: @category, show_count: true} %>
           <a href="/topicss" class="pull-right removeFilters">
             <i class="glyphicon glyphicon-remove"></i>
           </a>
@@ -31,7 +31,7 @@
             <h4 class="title"><%= link_to topic.title, topic %></h4>
             <% if topic.categories.count > 0 %>
               <div>
-                <% topics.categories.each do |category| %>
+                <% topic.categories.each do |category| %>
                   <%= render partial: "categories/category", locals: {category: category, show_count: false} %>
                 <% end %>
               </div>
@@ -41,7 +41,7 @@
       <% end %>
     </div>
     <div class="categoryContainer col-sm-3">
-      <h2>Categories</h2>
+      <h3>Categories</h3>
       <% Category.all.each do |category| %>
         <%= render partial: "categories/category", locals: {category: category, show_count: true} %>
       <% end %>
