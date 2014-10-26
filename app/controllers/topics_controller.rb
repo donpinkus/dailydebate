@@ -21,6 +21,7 @@ class TopicsController < ApplicationController
   # GET /topics/new
   def new
     @topic = Topic.new
+    gon.categories = Category.all
   end
 
   # GET /topics/1/edit
@@ -30,11 +31,24 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    @topic = Topic.new(topic_params)
+    puts "=== categories ==="
+    @category_names = JSON.parse(params[:topic][:categories])
+
+    @topic = Topic.new(title: topic_params[:title])
 
     @topic.user = current_user
 
     if @topic.save
+      @category_names.each do |name|
+        # Check if it exists
+        if !Category.find_by_name(name).blank?
+          @topic.topic_categories.create(category_id: Category.find_by_name(name).id)
+        else
+          category = Category.create(name: name)
+          @topic.topic_categories.create(category_id: category.id)
+        end
+      end
+
       if current_user
         redirect_to @topic, notice: "topic published."
       else
@@ -78,7 +92,7 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:title)
+      params.require(:topic).permit(:title, :categories)
     end
 
     def correct_user
