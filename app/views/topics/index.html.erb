@@ -1,41 +1,50 @@
 <div class="container">
-  <div class="topicsFeed col-sm-9">
-    <h2>
-      <%= link_to 'Create Topic', new_topic_path, class: "btn btn-default btn-sm pull-right" %>
-      Topics
-    </h2>
-
-    <% if params[:category] %>
-      <div class="alert alert-warning categoryFilterAlert">
-        Filtered by <%= render partial: "categorys/category", locals: {category: @category, show_count: true} %>
-        <a href="/topicss" class="pull-right removeFilters">
-          <i class="glyphicon glyphicon-remove"></i>
-        </a>
-      </div>
-    <% end %>
-
-    <% @topics.each do |topic| %>
-      <div class="topicContainer">
-        <div class="topic">
-          <img class="avatar pull-right"
-            src="https://graph.facebook.com/<%= topic.user.uid %>/picture?width=64&height=64"
-            height="32px">
-          <h4 class="title"><%= link_to topic.title, topic %></h4>
-          <% if topic.categories.count > 0 %>
-            <div>
-              <% topics.categories.each do |category| %>
-                <%= render partial: "categories/category", locals: {category: category, show_count: false} %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="lead">
+        2Sided is a place where any statement can be debated.
+      </p>
+    </div>
   </div>
-  <div class="categoryContainer col-sm-3">
-    <h2>Categories</h2>
-    <% Category.all.each do |category| %>
-      <%= render partial: "categories/category", locals: {category: category, show_count: true} %>
-    <% end %>
+  <div class="row">
+    <div class="topicsFeed col-sm-9">
+      <h2>
+        <%= link_to 'Create Statement', new_topic_path, class: "btn btn-default btn-sm pull-right" %>
+        Statements
+      </h2>
+
+      <% if params[:category] %>
+        <div class="alert alert-warning categoryFilterAlert">
+          Filtered by <%= render partial: "categorys/category", locals: {category: @category, show_count: true} %>
+          <a href="/topicss" class="pull-right removeFilters">
+            <i class="glyphicon glyphicon-remove"></i>
+          </a>
+        </div>
+      <% end %>
+
+      <% @topics.each do |topic| %>
+        <div class="topicContainer">
+          <div class="topic">
+            <img class="avatar pull-right"
+              src="https://graph.facebook.com/<%= topic.user.uid %>/picture?width=64&height=64"
+              height="32px">
+            <h4 class="title"><%= link_to topic.title, topic %></h4>
+            <% if topic.categories.count > 0 %>
+              <div>
+                <% topics.categories.each do |category| %>
+                  <%= render partial: "categories/category", locals: {category: category, show_count: false} %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="categoryContainer col-sm-3">
+      <h2>Categories</h2>
+      <% Category.all.each do |category| %>
+        <%= render partial: "categories/category", locals: {category: category, show_count: true} %>
+      <% end %>
+    </div>
   </div>
 </div>
