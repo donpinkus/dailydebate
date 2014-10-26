@@ -30,6 +30,12 @@ h1 {
 		background: white;
 		.commentInfo {
 			margin-bottom: 0px;
+			.upvote {
+				cursor: pointer;
+				&.active {
+					color: orange;
+				}
+			}
 		}
 		&.agreeComment {
 			border: 1px solid $green;

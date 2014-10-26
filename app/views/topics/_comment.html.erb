@@ -1,9 +1,10 @@
-<article class="alert comment <%= is_agree ? 'agreeComment' : 'disagreeComment'%>">
+<article class="alert comment <%= is_agree ? 'agreeComment' : 'disagreeComment'%>" data-comment-id="<%= c.id %>">
   <p class="commentInfo">
-    <i class="upvote glyphicon glyphicon-chevron-up"></i>
+    <% active_class = Vote.where(user: current_user, comment_id: c.id).exists? ? 'active' : '' %>
+    <i class="upvote glyphicon glyphicon-chevron-up <%= active_class %>"></i>
     <span class="text-muted">
       <%= link_to c.user.name, c.user %>
-      12 points
+      <%= c.votes.count %> points
       &middot;
       <%= time_ago_in_words(c.created_at) %> ago
     </span>

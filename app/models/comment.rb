@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
 	belongs_to :user
   belongs_to :topic
+  has_many :votes
 
   def render_content
     renderer = WikiRender.new(filter_html: true, hard_wrap: true)
