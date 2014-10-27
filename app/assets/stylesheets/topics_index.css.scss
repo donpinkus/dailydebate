@@ -115,6 +115,11 @@ $border-gray: #DADADD;
 						box-shadow: 0 1px 0px 0 calcShade(5);
 						color: calcShade(65);
 					}
+					&.active {
+						background: black(5.5);
+						box-shadow: -3px 0px 2px -2px hsla(0, 0%, 0%, 0.1) inset,0 0 4px 0 hsla(0, 0%, 0%, 0.1) inset;
+						border-color: black(25);
+					}
 				}
 			}
 			.answerCount {

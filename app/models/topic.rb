@@ -6,6 +6,8 @@ class Topic < ActiveRecord::Base
 	has_many :topic_categories
 	has_many :categories, through: :topic_categories
 
+	has_many :agree_votes
+
 	validates_length_of :title, :minimum => 3, :minimum => 10
 
 	def render_description

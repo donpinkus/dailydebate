@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :topics
   has_many :comments
   has_many :votes
+  has_many :agree_votes
 
 	def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

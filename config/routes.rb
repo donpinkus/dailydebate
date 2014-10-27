@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   post "upvote/:comment_id", to: "votes#trigger"
 
+  post "agree_vote/:topic_id/:is_agree", to: "agree_votes#trigger"
+
   resources :comments
 
   resources :topics
