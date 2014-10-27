@@ -17,11 +17,11 @@
     <%= f.text_field :title, placeholder: "Religion causes wars.", class: "form-control" %>
   </div>
   <div class="form-group">
-    <label>Categories</label>
+    <label>Categories</label> <small class="text-muted">Helps more people discover your statement.</small>
     <select
       id="categories"
       multiple
-      placeholder="Type a username to add a collaborator">
+      placeholder="Choose from existing categories, or add your own.">
     </select>
     <%= f.hidden_field :categories, id: "topic_categories" %>
   </div>
