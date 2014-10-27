@@ -25,19 +25,19 @@ $border-gray: #DADADD;
 }
 
 .indexHeader {
-	margin-top: -20px;
-	border-top: 0;
+	margin: 25px 0;
 	border-radius: 0;
-
 	.lead {
 		margin-bottom: 0;
+		font-weight: 400;
 		p {
-			margin-bottom: 2px;
+			margin: 0px 0 6px;
 		}
 		.antiTroll {
 			font-size: 60%;
 			margin-bottom: 0;
 			font-weight: 400;
+			color: hsla(200, 50%, 45%, .75);
 		}
 	}
 }
