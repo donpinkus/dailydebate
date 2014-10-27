@@ -4,7 +4,7 @@
 			<%= notice %>
 
 			<div class="btn-group pull-right">
-				<% if @topic.user == current_user %>
+				<% if false && @topic.user == current_user %>
 					<%= link_to topic_path(@topic), method: "delete", class: "btn btn-danger btn-sm" do %>
 						<i class="glyphicon glyphicon-remove"></i>
 						Delete Topic

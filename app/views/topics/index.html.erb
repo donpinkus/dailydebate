@@ -40,10 +40,27 @@
             <h4 class="title"><%= link_to topic.title, topic, class: "topicLink" %></h4>
             <div class="topicFooter">
               <div class="btn-group topicActions smallCaps">
-                <button class="btn btn-default btn-xs">agree</button>
+                <button class="btn btn-default btn-xs"
+                  data-toggle="modal"
+                  data-target="#addCommentModal">
+                  agree
+                </button>
                 <button class="btn btn-default btn-xs">disagree</button>
               </div>
               &nbsp; <span class="text-muted answerCount">3 answers</span>
+            </div>
+            <div class="commentForm hidden">
+              <br/>
+              <%= form_for Comment.new, class: "commentForm" do |f| %>
+                <%= f.hidden_field :topic_id, value: 1 %>
+                <%= f.hidden_field :is_agree, value: 1 %>
+                <div class="form-group">
+                  <label>Why do you agree? <small class="text-muted">Optional</small></label>
+                  <% placeholder_text = 1 ? "Why do you agree?" : "Why do you disagree?" %>
+                  <%= f.text_area :content, rows: 10, class: "form-control", placeholder: "Enter explanation..." %>
+                </div>
+                <%= f.submit class: "submitCommentBtn btn btn-small btn-primary", value: "Post" %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -57,3 +74,5 @@
     </div>
   </div>
 </div>
+
+
