@@ -32,7 +32,7 @@
             <img class="avatar pull-right"
               src="https://graph.facebook.com/<%= topic.user.uid %>/picture?width=64&height=64"
               height="32px">
-            <h4 class="title"><%= link_to topic.title, topic %></h4>
+            <h4 class="title"><%= link_to topic.title, topic, class: "topicLink" %></h4>
             <% if topic.categories.count > 0 %>
               <div>
                 <% topic.categories.each do |category| %>
