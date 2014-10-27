@@ -29,8 +29,13 @@ $border-gray: #DADADD;
 
 	.lead {
 		margin-bottom: 0;
-		small {
-			font-size: 65%;
+		p {
+			margin-bottom: 2px;
+		}
+		.antiTroll {
+			font-size: 60%;
+			margin-bottom: 0;
+			font-weight: 400;
 		}
 	}
 }
