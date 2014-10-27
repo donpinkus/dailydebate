@@ -1,0 +1,18 @@
+@function calcTint($percentage){
+  $alpha: $percentage / 100;
+  @return hsla(0,0,100,$alpha);
+}
+
+@function white($lightness){
+  @return hsla(0,0, $lightness, 1);
+}
+
+@function calcShade($percentage){
+  $alpha: $percentage / 100;
+@return hsla(0,0,0,$alpha);
+}
+
+@function black($percentage){
+  $lightness: 100 - $percentage;
+  @return hsla(0,0, $lightness, 1);
+}

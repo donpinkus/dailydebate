@@ -21,6 +21,7 @@
 
 @import 'global/nav_variables';
 @import 'bootstrap';
+@import 'sass_helpers';
 
 $dark-text: #444;
 $medium-text: #555;
@@ -110,6 +111,17 @@ $border-gray: #DADADD;
   font-style: italic;
 }
 
+$green: #8dc44e;
+$red: #f36c60;
+
+.greenText {
+  color: $green;
+}
+
+.redText {
+  color: $red;
+}
+
 /**
  * Global Styles
  */
@@ -119,6 +131,10 @@ html {
 
 * {
 	box-sizing: border-box;
+}
+
+.smallCaps {
+  font-variant: small-caps;
 }
 
 .avatar {
@@ -139,6 +155,12 @@ html {
 			height: 62px;
 		}
 	}
+  .profileAvatar {
+    margin-right: -2px;
+  }
+  .postOpinionBtn {
+    margin-left: 10px;
+  }
 }
 
 .label.greenLabel {

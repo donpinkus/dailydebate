@@ -14,10 +14,9 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <ul class="nav navbar-nav">
-          <li><%= link_to "All", topics_path %></li>
-          <li><%= link_to "Create Statement", new_topic_path %></a></li>
-        </ul>
+        <div class="nav navbar-nav navbar-right">
+          <%= link_to 'Post Opinion', new_topic_path, class: "btn btn-primary navbar-btn postOpinionBtn" %>
+        </div>
 
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -25,9 +24,8 @@
               <a href="#"
                 class="dropdown-toggle"
                 data-toggle="dropdown">
-                <img class="avatar" src="https://graph.facebook.com/<%= current_user.uid %>/picture?width=64&height=64" height="32px">
-                <strong>&nbsp; <%= current_user.name %></strong>
-                <span class="caret"></span>
+                <img class="avatar profileAvatar" src="https://graph.facebook.com/<%= current_user.uid %>/picture?width=64&height=64" height="22px">
+                &nbsp; <%= current_user.name %>
               </a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">My Statements</a></li>

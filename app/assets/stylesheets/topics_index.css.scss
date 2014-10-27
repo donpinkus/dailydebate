@@ -1,3 +1,5 @@
+@import 'sass_helpers';
+
 $dark-text: #444;
 $medium-text: #555;
 $light-text: #999;
@@ -40,12 +42,20 @@ $border-gray: #DADADD;
 	}
 }
 
+.contentHeader {
+	font-weight: 600;
+	font-size: 18px;
+	font-variant: small-caps;
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+
 .topicContainer {
 	&:hover {
 		text-decoration: none;
 	}
 	.topic {
-		padding: 15px 12px;
+		padding: 14px 16px;
 		-webkit-transition: background 0.1s ease-in-out;
 		-moz-transition: background 0.1s ease-in-out;
 		-o-transition: background 0.1s ease-in-out;
@@ -57,16 +67,30 @@ $border-gray: #DADADD;
 			background: #fcf5e2;
 			cursor: pointer;
 		}
-		.avatar {
-			margin-right: 5px;
-			margin-top: 5px;
+
+		.topicMetaInfo {
+			font-weight: 500;
+			color: hsl(0,0,70);
+			margin-bottom: 6px;
+			.squareAvatar {
+				border-radius: 2px;
+				margin-right: 3px;
+			}
+			a {
+				font-weight: 900;
+				color: hsl(0, 0, 60);
+				&:hover {
+					color: hsl(0,0,40);
+				}
+			}
 		}
+
 		.title {
-			font-size: 20px;
-			font-weight: bold;
+			font-size: 18px;
+			font-weight: 600;
 			display: inline-block;
 			margin-top: 0px;
-			margin-bottom: 0px;
+			margin-bottom: 15px;
 			a {
 				color: #534540;
 				&:hover {
@@ -74,6 +98,30 @@ $border-gray: #DADADD;
 				}
 			}
 		}
+
+		.topicFooter {
+			.topicActions {
+				.btn {
+					width: 80px;
+					background-image: linear-gradient(black(1), black(4));
+					box-shadow: 0 1px 0px 0 calcShade(3);
+					border-color: black(15);
+					font-weight: 900;
+					color: calcShade(55);
+					padding-bottom: 3px;
+					text-shadow: 0 1px 0 calcTint(60);
+					&:hover {
+						border-color: black(25);
+						box-shadow: 0 1px 0px 0 calcShade(5);
+						color: calcShade(65);
+					}
+				}
+			}
+			.answerCount {
+				font-size: 11px;
+			}
+		}
+
 		.categoryline {
 			font-size: 17px;
 			margin-top: 2px;
