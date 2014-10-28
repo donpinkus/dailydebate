@@ -78,10 +78,22 @@
       <% end %>
     </div>
     <div class="categoryContainer col-sm-3">
-      <h3 class="contentHeader">categories</h3>
-      <% Category.all.each do |category| %>
-        <%= render partial: "categories/category", locals: {category: category, show_count: true} %>
-      <% end %>
+      <h3 class="contentHeader">filter</h3>
+      <ul class="filters">
+        <% Category.all.each do |category| %>
+          <li>
+            <a href="/topics?sort=<%= params[:sort] %>&tag=<%= category.name.parameterize %>"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="<%= category.description %>">
+              <%= category.name.downcase %>
+              <span class="count">
+                <%= category.topics.count %>
+              </span>
+            </a>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

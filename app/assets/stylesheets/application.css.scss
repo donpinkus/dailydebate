@@ -166,18 +166,3 @@ html {
 .topNavSpacer {
   height: 62px;
 }
-
-.label.greenLabel {
-	display: inline-block;
-	background: transparent;
-	font-weight: normal;
-	border: 1px solid rgb(205, 236, 217);
-	background-color: rgb(249, 255, 251);
-	color: $light-text;
-	cursor: pointer;
-	&:hover {
-		background-color: rgb(249, 255, 251);
-		color: $light-text;
-		text-decoration: underline;
-	}
-}
