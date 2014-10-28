@@ -4,7 +4,27 @@ $(document).ready(function(){
   //   window.location = link;
   // });
   $('.topicActions .btn').click(function(){
-    $(this).addClass('active');
+    var $btns = $(this).closest('.topicActions').find('.btn');
+    var $agreeForm = $(this).closest('.topicContainer').find('.agreeCommentForm');
+    var $disagreeForm = $(this).closest('.topicContainer').find('.disagreeCommentForm');
+
+    if ($(this).hasClass('active')) {
+      $btns.removeClass('active');
+      $agreeForm.addClass('hidden');
+      $disagreeForm.addClass('hidden');
+    } else {
+      $btns.removeClass('active');
+      $agreeForm.addClass('hidden');
+      $disagreeForm.addClass('hidden');
+
+      $(this).addClass('active');
+      if ($(this).attr('data-is-agree') == 1) {
+        $agreeForm.removeClass('hidden');
+      } else {
+        $disagreeForm.removeClass('hidden');
+      }
+
+    }
 
     // Submit Ajax vote
     var topicID = $(this).closest('.topicContainer').attr('data-topic-id');
@@ -20,7 +40,7 @@ $(document).ready(function(){
     });
 
     // Show form
-    $(this).closest('.topicContainer').find('.commentForm').removeClass('hidden');
+
   });
 });
 
