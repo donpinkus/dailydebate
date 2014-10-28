@@ -2,6 +2,7 @@ class AgreeVotesController < ApplicationController
   def trigger
     if !current_user
       render json: {succesful: 0}
+      return false;
     end
 
     @existing_vote = AgreeVote.where(
