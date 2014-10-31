@@ -4,6 +4,25 @@ $(document).ready(function(){
   //   window.location = link;
   // });
   $('.topicActions .btn').click(function(){
+    if (!gon.user) {
+      $(this).popover({
+        content: "<div>\
+        <p>We only allow 1 vote per person on an opinion, <br/> so we need to know who you are!</p>\
+        <a href='/auth/facebook' class='btn btn-primary'>sign in with facebook</button></div>",
+        html: "true",
+        placement: "bottom",
+        title: "log in to vote"
+      }).on("show.bs.popover", function(e){
+        // hide all other popovers
+        $("[rel=popover]").not(e.target).popover("destroy");
+        $(".popover").remove();
+      });
+
+      $(this).popover('toggle');
+
+      return false;
+    }
+
     var $btns = $(this).closest('.topicActions').find('.btn');
     var $agreeForm = $(this).closest('.topicContainer').find('.agreeCommentForm');
     var $disagreeForm = $(this).closest('.topicContainer').find('.disagreeCommentForm');

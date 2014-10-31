@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :save_unsaved_comments
   before_action :save_unsaved_topics
 
+  before_action :set_gon_user
+
   private
 
   def current_user
@@ -32,6 +34,10 @@ class ApplicationController < ActionController::Base
         redirect_to topic_path(@topic), notice: 'topic published.'
       end
     end
+  end
+
+  def set_gon_user
+    gon.user = @current_user
   end
 
   helper_method :current_user
