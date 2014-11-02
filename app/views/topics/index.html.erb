@@ -43,7 +43,10 @@
                 <button class="btn btn-default btn-xs voteBtn smallCaps" data-is-agree="1">agree</button>
                 <button class="btn btn-default btn-xs voteBtn smallCaps" data-is-agree="0">disagree</button>
               </div>
-              &nbsp; <span class="text-muted answerCount">3 answers</span>
+              &nbsp;
+              <% if topic.comments.count > 0 %>
+                <span class="text-muted answerCount"><%= topic.comments.count %> comments</span>
+              <% end %>
             </div>
 
             <div class="agreeCommentForm hidden">
