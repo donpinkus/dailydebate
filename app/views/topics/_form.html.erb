@@ -14,6 +14,7 @@
   <% end %>
 
   <div class="form-group">
+    <label>Opinion</label>
     <%= f.text_field :title, placeholder: "Religion causes wars.", class: "form-control" %>
   </div>
   <div class="form-group">
@@ -26,6 +27,6 @@
     <%= f.hidden_field :categories, id: "topic_categories" %>
   </div>
   <div class="actions">
-    <%= f.submit "Post Statement", class: "btn btn-primary" %>
+    <%= f.submit "Post Opinion", class: "btn btn-primary" %>
   </div>
 <% end %>
