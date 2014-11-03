@@ -4,7 +4,10 @@ $dark-text: #444;
 $medium-text: #555;
 $light-text: #999;
 
-$green: #2F97E9;
+$background-green: #2F97E9;
+
+$green: #8dc44e;
+$red: #f36c60;
 
 $light-gray: #F9F9F9;
 $medium-gray: #EEEEEF;
@@ -110,6 +113,16 @@ $border-gray: #DADADD;
 					color: calcShade(55);
 					padding-bottom: 3px;
 					text-shadow: 0 1px 0 calcTint(60);
+					.agreeVoteCount, .disagreeVoteCount {
+						margin-left: 3px;
+						font-size: 80%;
+					}
+					.agreeVoteCount {
+						color: hsl(88, 100%, 36%);
+					}
+					.disagreeVoteCount {
+						color: $red;
+					}
 					&:hover {
 						border-color: black(25);
 						box-shadow: 0 1px 0px 0 calcShade(5);
