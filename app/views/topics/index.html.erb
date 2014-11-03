@@ -41,8 +41,14 @@
             <h4 class="title"><%= link_to topic.title, topic, class: "topicLink" %></h4>
             <div class="topicFooter">
               <div class="btn-group topicActions">
-                <button class="btn btn-default btn-xs voteBtn smallCaps" data-is-agree="1">agree</button>
-                <button class="btn btn-default btn-xs voteBtn smallCaps" data-is-agree="0">disagree</button>
+                <button class="btn btn-default btn-xs voteBtn smallCaps" data-is-agree="1">
+                  agree
+                  <small class="text-muted">&nbsp; <%= topic.agree_votes.where(is_agree: true).count %></small>
+                </button>
+                <button class="btn btn-default btn-xs voteBtn smallCaps" data-is-agree="0">
+                  disagree
+                  <small class="text-muted">&nbsp; <%= topic.agree_votes.where(is_agree: false).count %></small>
+                </button>
               </div>
               &nbsp;
               <% if topic.comments.count > 0 %>
