@@ -15,11 +15,11 @@
   </div>
   <div class="row">
     <div class="topicsFeed col-sm-9">
-      <% if params[:category] %>
+      <% if params[:category_name] %>
         <div class="alert alert-warning categoryFilterAlert">
-          Filtered by <%= @category.name.humanize %>
-          <a href="/topicss" class="pull-right removeFilters">
-            <i class="glyphicon glyphicon-remove"></i>
+          Opinions on <strong><%= @category.name.gsub(/-/, " ").titlecase %></strong>
+          <a href="/" class="pull-right removeFilters">
+            <small>Remove Filter</small> <i class="glyphicon glyphicon-remove"></i>
           </a>
         </div>
       <% end %>
