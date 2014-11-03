@@ -31,7 +31,6 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    puts "=== categories ==="
     @category_names = JSON.parse(params[:topic][:categories])
 
     @topic = Topic.new(title: topic_params[:title])
@@ -56,6 +55,7 @@ class TopicsController < ApplicationController
         redirect_to "/auth/facebook"
       end
     else
+      gon.categories = Category.all
       render :new
     end
   end
