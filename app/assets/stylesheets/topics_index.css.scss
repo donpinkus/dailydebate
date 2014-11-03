@@ -181,6 +181,9 @@ $border-gray: #DADADD;
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
+		&.active {
+			background: white;
+		}
 		a {
 			color: hsl(0, 0%, 53%);
 			display: block;
