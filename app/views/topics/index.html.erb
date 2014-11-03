@@ -36,14 +36,19 @@
               <%= topic.categories.map { |cat| link_to(cat.name.downcase, "/category/#{cat.name.parameterize}") }.join(', ').html_safe %>
             </p>
 
-            <h4 class="title"><%= link_to topic.title, topic, class: "topicLink" %></h4>
+            <h4 class="title">
+              <%= link_to topic.title, topic, class: "topicLink" %>
+            </h4>
+
             <div class="topicFooter">
               <div class="btn-group topicActions">
-                <button class="btn btn-default btn-xs voteBtn smallCaps" data-is-agree="1">
+                <% agree_active_class = current_user && topic.agree_votes.where(is_agree: true, user_id: current_user.id).count > 0 ? 'active' : '' %>
+                <% disagree_active_class = current_user && topic.agree_votes.where(is_agree: false, user_id: current_user.id).count > 0 ? 'active' : '' %>
+                <button class="btn btn-default btn-xs voteBtn agree smallCaps <%= agree_active_class %>" data-is-agree="1">
                   agree
                   <small class="agreeVoteCount"><%= topic.agree_votes.where(is_agree: true).count %></small>
                 </button>
-                <button class="btn btn-default btn-xs voteBtn smallCaps" data-is-agree="0">
+                <button class="btn btn-default btn-xs voteBtn disagree smallCaps <%= disagree_active_class %>" data-is-agree="0">
                   disagree
                   <small class="disagreeVoteCount"><%= topic.agree_votes.where(is_agree: false).count %></small>
                 </button>

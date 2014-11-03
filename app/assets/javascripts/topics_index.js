@@ -4,6 +4,9 @@ $(document).ready(function(){
   //   window.location = link;
   // });
   $('.topicActions .btn').click(function(){
+    var $clickedBtn = $(this);
+    var $topicActions = $clickedBtn.closest('.topicActions');
+
     if (!gon.user) {
       $(this).popover({
         content: "<div>\
@@ -54,6 +57,8 @@ $(document).ready(function(){
       url: "/agree_vote/" + topicID + "/" + isAgree,
       method: "POST"
     }).done(function(status){
+      $topicActions.find('.agreeVoteCount').text(status.agree_vote_count);
+      $topicActions.find('.disagreeVoteCount').text(status.disagree_vote_count);
       console.log(status);
       console.log('voted');
     });
