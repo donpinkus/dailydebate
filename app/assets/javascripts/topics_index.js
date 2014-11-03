@@ -59,8 +59,6 @@ $(document).ready(function(){
     }).done(function(status){
       $topicActions.find('.agreeVoteCount').text(status.agree_vote_count);
       $topicActions.find('.disagreeVoteCount').text(status.disagree_vote_count);
-      console.log(status);
-      console.log('voted');
     });
 
     // Show form
