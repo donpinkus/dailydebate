@@ -94,6 +94,11 @@
       <h3 class="contentHeader">filter</h3>
       <ul class="filters">
         <% Category.all.each do |category| %>
+          <%
+            if category.topics.count == 0
+              next
+            end
+          %>
           <% active_class = category == @category ? 'active' : '' %>
           <% link = category == @category ? '/' : '/category/' + category.name.parameterize %>
           <li class="<%= active_class %>">
