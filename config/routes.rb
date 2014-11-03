@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   post "agree_vote/:topic_id/:is_agree", to: "agree_votes#trigger"
 
+  get 'category/:category_name', to: "topics#index"
+
   resources :comments
 
   resources :topics

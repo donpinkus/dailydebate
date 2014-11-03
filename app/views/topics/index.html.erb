@@ -4,7 +4,7 @@
       <div class="alert alert-info indexHeader">
         <div class="lead">
           <p>
-            2Sided is a place where opinions are debated.
+            2Sided is a place where opinions are respectfully debated.
           </p>
           <p class="antiTroll">
             To maintain healthy debate, only post serious comments.  We're here to educate each other and learn from different perspectives.
@@ -17,7 +17,7 @@
     <div class="topicsFeed col-sm-9">
       <% if params[:category] %>
         <div class="alert alert-warning categoryFilterAlert">
-          Filtered by <%= render partial: "categories/category", locals: {category: @category, show_count: true} %>
+          Filtered by <%= @category.name.humanize %>
           <a href="/topicss" class="pull-right removeFilters">
             <i class="glyphicon glyphicon-remove"></i>
           </a>
@@ -27,8 +27,6 @@
       <% @topics.each do |topic| %>
         <div class="topicContainer" data-topic-id="<%= topic.id %>">
           <div class="topic">
-            <span class="pull-right"><i class="glyphicon glyphicon-star-empty text-muted"></i></span>
-
             <p class="smallCaps topicMetaInfo">
               <img class="squareAvatar"
               src="https://graph.facebook.com/<%= topic.user.uid %>/picture?width=32&height=32"
@@ -92,7 +90,7 @@
       <ul class="filters">
         <% Category.all.each do |category| %>
           <li>
-            <a href="/topics?sort=<%= params[:sort] %>&tag=<%= category.name.parameterize %>"
+            <a href="/category/<%= category.name.parameterize %>"
               data-toggle="tooltip"
               data-placement="top"
               title="<%= category.description %>">

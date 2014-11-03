@@ -5,8 +5,8 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    if params[:category]
-      @category = Category.find_by_name(params[:category])
+    if params[:category_name]
+      @category = Category.find_by_name(params[:category_name])
       @topics = @category.topics.where("user_id > 0").order("CREATED_AT DESC")
     else
       @topics = Topic.where("user_id > 0").order("CREATED_AT DESC")
