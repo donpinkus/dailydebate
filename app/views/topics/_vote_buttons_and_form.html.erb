@@ -1,0 +1,47 @@
+<div class="voteActionsContainer" data-topic-id="<%= topic.id %>">
+  <div class="topicFooter">
+    <div class="btn-group topicActions">
+      <% agree_active_class = current_user && topic.agree_votes.where(is_agree: true, user_id: current_user.id).count > 0 ? 'active' : '' %>
+      <% disagree_active_class = current_user && topic.agree_votes.where(is_agree: false, user_id: current_user.id).count > 0 ? 'active' : '' %>
+      <button class="btn btn-default btn-xs voteBtn agree smallCaps <%= agree_active_class %>" data-is-agree="1">
+        agree
+        <small class="agreeVoteCount"><%= topic.agree_votes.where(is_agree: true).count %></small>
+      </button>
+      <button class="btn btn-default btn-xs voteBtn disagree smallCaps <%= disagree_active_class %>" data-is-agree="0">
+        disagree
+        <small class="disagreeVoteCount"><%= topic.agree_votes.where(is_agree: false).count %></small>
+      </button>
+    </div>
+    &nbsp;
+    <% if topic.comments.count > 0 %>
+      <span class="text-muted answerCount"><%= pluralize(topic.comments.count, "comment") %></span>
+    <% end %>
+  </div>
+
+  <div class="agreeCommentForm hidden">
+    <br/>
+    <%= form_for Comment.new do |f| %>
+      <%= f.hidden_field :topic_id, value: topic.id %>
+      <%= f.hidden_field :is_agree, value: 1 %>
+      <div class="form-group">
+        <label>Why do you agree? <small class="text-muted">Optional</small></label>
+        <% placeholder_text = 1 ? "Why do you agree?" : "Why do you disagree?" %>
+        <%= f.text_area :content, rows: 10, class: "form-control", placeholder: "Enter explanation..." %>
+      </div>
+      <%= f.submit class: "submitCommentBtn btn btn-small btn-primary", value: "Post" %>
+    <% end %>
+  </div>
+  <div class="disagreeCommentForm hidden">
+    <br/>
+    <%= form_for Comment.new do |f| %>
+      <%= f.hidden_field :topic_id, value: topic.id %>
+      <%= f.hidden_field :is_agree, value: 0 %>
+      <div class="form-group">
+        <label>Why do you disagree? <small class="text-muted">Optional</small></label>
+        <% placeholder_text = 0 ? "Why do you agree?" : "Why do you disagree?" %>
+        <%= f.text_area :content, rows: 10, class: "form-control", placeholder: "Enter explanation..." %>
+      </div>
+      <%= f.submit class: "submitCommentBtn btn btn-small btn-primary", value: "Post" %>
+    <% end %>
+  </div>
+</div>

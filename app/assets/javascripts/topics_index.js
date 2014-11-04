@@ -1,8 +1,4 @@
 $(document).ready(function(){
-  // $(".topicContainer").click(function(){
-  //   var link = $(this).find('.topicLink').attr('href');
-  //   window.location = link;
-  // });
   $('.topicActions .btn').click(function(){
     var $clickedBtn = $(this);
     var $topicActions = $clickedBtn.closest('.topicActions');
@@ -27,8 +23,8 @@ $(document).ready(function(){
     }
 
     var $btns = $(this).closest('.topicActions').find('.btn');
-    var $agreeForm = $(this).closest('.topicContainer').find('.agreeCommentForm');
-    var $disagreeForm = $(this).closest('.topicContainer').find('.disagreeCommentForm');
+    var $agreeForm = $(this).closest('.voteActionsContainer').find('.agreeCommentForm');
+    var $disagreeForm = $(this).closest('.voteActionsContainer').find('.disagreeCommentForm');
 
     if ($(this).hasClass('active')) {
       $btns.removeClass('active');
@@ -49,7 +45,7 @@ $(document).ready(function(){
     }
 
     // Submit Ajax vote
-    var topicID = $(this).closest('.topicContainer').attr('data-topic-id');
+    var topicID = $(this).closest('.voteActionsContainer').attr('data-topic-id');
     var isAgree = $(this).attr('data-is-agree');
 
     // TODO check if user exists...
@@ -60,12 +56,5 @@ $(document).ready(function(){
       $topicActions.find('.agreeVoteCount').text(status.agree_vote_count);
       $topicActions.find('.disagreeVoteCount').text(status.disagree_vote_count);
     });
-
-    // Show form
-
   });
 });
-
-// hsl(88, 50%, 54%)
-
-// hsl(103, 100%, 84%)

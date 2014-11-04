@@ -12,28 +12,37 @@
 				<% end %>
 			</div>
 
+			<br/>
+
 			<h1><%= @topic.title %></h1>
 			<p><%= @topic.user.name %> &middot; <%= time_ago_in_words(@topic.created_at) %> ago</p>
+
+			<%= render partial: "vote_buttons_and_form", locals: {topic: @topic} %>
+
 		</div>
 	</header>
 	<main class="row">
 		<div class="col-sm-6">
 			<h2 class="greenText">Agree</h2>
 			<section class="comments">
-				<%= render partial: "comment_form", locals: {is_agree: true} %>
-				<br/>
-				<% @topic.comments.where(is_agree: true).each do |c| %>
-					<%= render partial: "comment", locals: {is_agree: true, c: c} %>
+				<% if @agree_comments.count > 0 %>
+					<% @topic.comments.where(is_agree: true).each do |c| %>
+						<%= render partial: "comment", locals: {is_agree: true, c: c} %>
+					<% end %>
+				<% else %>
+					<h4 class="text-muted">No comments for "agree".</h4>
 				<% end %>
 			</div>
 		</section>
 		<div class="col-sm-6">
 			<h2 class="redText">Disagree</h2>
 			<section class="comments">
-				<%= render partial: "comment_form", locals: {is_agree: false} %>
-				<br/>
-				<% @topic.comments.where(is_agree: false).each do |c| %>
-					<%= render partial: "comment", locals: {is_agree: false, c: c} %>
+				<% if @disagree_comments.count > 0 %>
+					<% @topic.comments.where(is_agree: false).each do |c| %>
+						<%= render partial: "comment", locals: {is_agree: false, c: c} %>
+					<% end %>
+				<% else %>
+					<h4 class="text-muted">No comments for "disagree".</h4>
 				<% end %>
 			</section>
 		</div>

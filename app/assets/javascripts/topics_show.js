@@ -1,3 +1,5 @@
+//= require topics_index
+
 $(document).ready(function(){
   $('.new_comment textarea').focus(function(){
     $(this).closest('form').find('.submitCommentBtn').removeClass('hidden');
