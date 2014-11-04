@@ -3,11 +3,12 @@
     <div class="btn-group topicActions">
       <% agree_active_class = current_user && topic.agree_votes.where(is_agree: true, user_id: current_user.id).count > 0 ? 'active' : '' %>
       <% disagree_active_class = current_user && topic.agree_votes.where(is_agree: false, user_id: current_user.id).count > 0 ? 'active' : '' %>
-      <button class="btn btn-default btn-xs voteBtn agree smallCaps <%= agree_active_class %>" data-is-agree="1">
+      <% button_size_class = params["action"] == "index" ? "btn-xs" : "" %>
+      <button class="btn btn-default <%= button_size_class %> voteBtn agree smallCaps <%= agree_active_class %>" data-is-agree="1">
         agree
         <small class="agreeVoteCount"><%= topic.agree_votes.where(is_agree: true).count %></small>
       </button>
-      <button class="btn btn-default btn-xs voteBtn disagree smallCaps <%= disagree_active_class %>" data-is-agree="0">
+      <button class="btn btn-default <%= button_size_class %> voteBtn disagree smallCaps <%= disagree_active_class %>" data-is-agree="0">
         disagree
         <small class="disagreeVoteCount"><%= topic.agree_votes.where(is_agree: false).count %></small>
       </button>

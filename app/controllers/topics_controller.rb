@@ -17,7 +17,7 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @agree_comments = @topic.comments.where(is_agree: true)
-    @disagree_comments = @topic.comments.where(is_agree: true)
+    @disagree_comments = @topic.comments.where(is_agree: false)
   end
 
   # GET /topics/new

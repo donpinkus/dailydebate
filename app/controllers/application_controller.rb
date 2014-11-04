@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :save_unsaved_topics
 
   before_action :set_gon_user
+  before_action :set_gon_action_and_controller
 
   private
 
@@ -38,6 +39,11 @@ class ApplicationController < ActionController::Base
 
   def set_gon_user
     gon.user = @current_user
+  end
+
+  def set_gon_action_and_controller
+    gon.action = params["action"]
+    gon.controller = params["controller"]
   end
 
   helper_method :current_user
