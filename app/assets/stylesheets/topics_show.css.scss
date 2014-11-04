@@ -24,10 +24,9 @@ h1 {
 	}
 	.comment {
 		font-size: 15px;
-		padding: 10px 14px;
+		padding: 10px 0;
 		margin-bottom: 10px;
 		border-radius: 3px;
-		background: white;
 		.commentInfo {
 			margin-bottom: 0px;
 			.upvote {
@@ -38,10 +37,10 @@ h1 {
 			}
 		}
 		&.agreeComment {
-			border: 1px solid $green;
+			border-top: 1px solid $green;
 		}
 		&.disagreeComment {
-			border: 1px solid $red;
+			border-top: 1px solid $red;
 		}
 		.commentInfo {
 			font-size: 12px;
