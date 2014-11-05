@@ -5,11 +5,11 @@ User.create!([
 ])
 
 Topic.create!([
-  {user_id: 1, category_id: nil, title: "There should be no minimum wage."},
-  {user_id: 1, category_id: nil, title: "Religion does not cause wars."},
-  {user_id: 1, category_id: nil, title: "All drugs should be legalized."},
-  {user_id: 1, category_id: nil, title: "You should sell AAPL stock."},
-  {user_id: 1, category_id: nil, title: "Facebook is good for the world."},
+  {user_id: 1, category_id: 1, title: "There should be no minimum wage."},
+  {user_id: 1, category_id: 5, title: "Religion does not cause wars."},
+  {user_id: 1, category_id: 1, title: "All drugs should be legalized."},
+  {user_id: 1, category_id: 11, title: "You should sell AAPL stock."},
+  {user_id: 1, category_id: 3, title: "Facebook is good for the world."},
   {user_id: 1, category_id: nil, title: "Euthanizing (assisted suicide) should be legalized. "}
 ])
 
@@ -25,5 +25,45 @@ Comment.create!([
   {content: "At low incomes, saving and investing in yourself to increase your wage is impossible. \r\n\r\n“I try to save up a little bit, but sometimes, I buy one thing and it’s all gone,” Barnett says.\r\n\r\nBy the time you've made enough money to sustain yourself, you are out of time, energy, and capital.   If you increase the minimum wage, you give very low-income people a chance to invest and raise their wage. \r\n\r\n[$10 an hour with no way out](http://america.aljazeera.com/articles/2014/2/4/-10-an-hour-withnowayout.html)\r\n\r\nAn economic theory called \"Solow's growth model\" reminds me of this. Solow's growth model says that there are \"steady states\" where low-income countries cannot advance to a high-income state, because they lack the resources to invest in themselves.  This seems very similar to people who are at a low-income state.", topic_id: 1, user_id: 1, is_agree: false, reply_to: 0}
 ])
 
+Category.create!([
+  {name: "economics", description: nil},
+  {name: "public-policy", description: nil},
+  {name: "start-ups", description: nil},
+  {name: "business", description: nil},
+  {name: "religion", description: nil},
+  {name: "philosophy", description: nil},
+  {name: "sociology", description: nil},
+  {name: "politcs", description: nil},
+  {name: "diet", description: nil},
+  {name: "finance", description: nil},
+  {name: "stocks", description: nil},
+  {name: "health", description: nil},
+  {name: "travel", description: nil},
+  {name: "Medical Care", description: nil}
+])
 
+# These are incorrect.
+TopicCategory.create!([
+  {topic_id: 1, category_id: 1},
+  {topic_id: 1, category_id: 2},
+  {topic_id: 2, category_id: 3},
+  {topic_id: 2, category_id: 4},
+  {topic_id: 3, category_id: 5},
+  {topic_id: 3, category_id: 6},
+  {topic_id: 3, category_id: 7},
+  {topic_id: 4, category_id: 5},
+  {topic_id: 4, category_id: 6},
+  {topic_id: 4, category_id: 7},
+  {topic_id: 5, category_id: 2},
+  {topic_id: 5, category_id: 8},
+  {topic_id: 5, category_id: 1},
+  {topic_id: 6, category_id: 9},
+  {topic_id: 7, category_id: 10},
+  {topic_id: 8, category_id: 11},
+  {topic_id: 9, category_id: 7},
+  {topic_id: 10, category_id: 12},
+  {topic_id: 10, category_id: 13},
+  {topic_id: 11, category_id: 14},
+  {topic_id: 11, category_id: 8}
+])
 
