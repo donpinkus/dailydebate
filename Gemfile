@@ -49,6 +49,9 @@ gem 'devise'
 
 gem 'gon'
 
+# Used for generating a seeds file
+gem 'seed_dump'
+
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'

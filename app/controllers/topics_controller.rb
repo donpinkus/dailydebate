@@ -7,9 +7,9 @@ class TopicsController < ApplicationController
   def index
     if params[:category_name]
       @category = Category.find_by_name(params[:category_name])
-      @topics = @category.topics.where("user_id > 0").order("CREATED_AT DESC")
+      @topics = @category.topics.all.order("CREATED_AT DESC")
     else
-      @topics = Topic.where("user_id > 0").order("CREATED_AT DESC")
+      @topics = Topic.all.order("CREATED_AT DESC")
     end
   end
 
