@@ -22,6 +22,7 @@
 @import 'global/nav_variables';
 @import 'bootstrap';
 @import 'sass_helpers';
+@import 'components';
 
 $dark-text: #444;
 $medium-text: #555;
@@ -166,3 +167,57 @@ html {
 .topNavSpacer {
   height: 62px;
 }
+
+
+
+.voteActionsContainer {
+  .topicActions {
+    .voteBtn {
+      width: 90px;
+      background-image: linear-gradient(black(1), black(4));
+      box-shadow: 0 1px 0px 0 calcShade(3);
+      border-color: black(15);
+      font-weight: 900;
+      color: calcShade(55);
+      padding-bottom: 3px;
+      text-shadow: 0 1px 0 calcTint(60);
+      .agreeVoteCount, .disagreeVoteCount {
+        margin-left: 3px;
+        font-size: 80%;
+      }
+      .agreeVoteCount {
+        color: hsl(88, 100%, 36%);
+      }
+      .disagreeVoteCount {
+        color: $red;
+      }
+      &:hover {
+        border-color: black(25);
+        box-shadow: 0 1px 0px 0 calcShade(5);
+        color: calcShade(65);
+      }
+      &.active {
+        background: black(5.5);
+        box-shadow: -3px 0px 2px -2px hsla(0, 0%, 0%, 0.1) inset,0 0 4px 0 hsla(0, 0%, 0%, 0.1) inset;
+        border-color: black(25);
+      }
+    }
+    .popover {
+      width: 328px !important;
+      max-width: 475px;
+      .popover-title {
+        font-variant: small-caps;
+      }
+    }
+  }
+  .answerCount {
+    font-size: 11px;
+  }
+}
+
+.voteActionsContainer.showPage {
+  .topicActions .voteBtn {
+    padding-bottom: 9px;
+  }
+}
+

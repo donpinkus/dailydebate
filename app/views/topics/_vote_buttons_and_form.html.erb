@@ -1,4 +1,4 @@
-<div class="voteActionsContainer" data-topic-id="<%= topic.id %>">
+<div class="voteActionsContainer <%= params["action"] == "show" ? "showPage" : "" %>" data-topic-id="<%= topic.id %>">
   <div class="topicFooter">
     <div class="btn-group topicActions">
       <% agree_active_class = current_user && topic.agree_votes.where(is_agree: true, user_id: current_user.id).count > 0 ? 'active' : '' %>

@@ -15,7 +15,10 @@
 			<br/>
 
 			<h1><%= @topic.title %></h1>
-			<p><%= @topic.user.name %> &middot; <%= time_ago_in_words(@topic.created_at) %> ago</p>
+			<p class="topicMetaInfo">
+				<span class="text-muted">submitted <%= time_ago_in_words(@topic.created_at) %> ago by</span>
+				<%= link_to @topic.user.name, @topic.user %>
+			</p>
 
 			<%= render partial: "vote_buttons_and_form", locals: {topic: @topic} %>
 
@@ -23,7 +26,7 @@
 	</header>
 	<main class="row">
 		<div class="col-sm-6">
-			<h2 class="greenText">Agree</h2>
+			<h3 class="greenText">Agree</h3>
 			<section class="comments">
 				<% if @agree_comments.count > 0 %>
 					<% @topic.comments.where(is_agree: true).each do |c| %>
@@ -35,7 +38,7 @@
 			</div>
 		</section>
 		<div class="col-sm-6">
-			<h2 class="redText">Disagree</h2>
+			<h3 class="redText">Disagree</h3>
 			<section class="comments">
 				<% if @disagree_comments.count > 0 %>
 					<% @topic.comments.where(is_agree: false).each do |c| %>
