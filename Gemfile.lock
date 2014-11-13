@@ -128,6 +128,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (5.4.1)
+    modular-scale (2.0.5)
+      compass (>= 0.12.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -240,12 +242,14 @@ DEPENDENCIES
   bootstrap-sass (~> 3.0.1.0.rc)
   breakpoint (= 2.4.2)
   coffee-rails (~> 4.0.0)
+  compass
   compass-rails (= 1.1.7)
   devise
   figaro
   gon
   jbuilder (~> 2.0)
   jquery-rails
+  modular-scale
   normalize-rails
   omniauth-facebook
   pg (= 0.17.1)

@@ -15,15 +15,25 @@
  *= require_self
  */
 
+/* SASS libs */
 @import 'compass';
 @import 'susy';
 @import 'breakpoint';
+@import 'modular-scale';
+@import 'bootstrap';
+
+/* Project files */
+@import 'colors';
+@import 'base/typography';
+@import 'base/reset';
 
 @import 'global/nav_variables';
-@import 'bootstrap';
+
 @import 'sass_helpers';
-@import 'colors';
-@import 'components';
+
+// @import 'components/**/*';
+
+@import 'pages/**/*';
 
 $dark-text: #444;
 $medium-text: #555;
@@ -124,17 +134,6 @@ $red: #f36c60;
   color: $red;
 }
 
-/**
- * Global Styles
- */
-html {
-	font-family: "SourceSansPro"
-}
-
-* {
-	box-sizing: border-box;
-}
-
 .smallCaps {
   font-variant: small-caps;
 }
@@ -148,13 +147,13 @@ html {
 	border-left: 0px;
 	border-right: 0px;
 	.navbar-nav {
-		height: 62px;
+		height: 4rem;
 		.avatar {
 			margin-top: -6px;
 			border-radius: 50%;
 		}
 		.dropdown-toggle {
-			height: 62px;
+			height: 4rem;
 		}
 	}
   .profileAvatar {
@@ -166,7 +165,7 @@ html {
 }
 
 .topNavSpacer {
-  height: 62px;
+  height: 4rem;
 }
 
 
