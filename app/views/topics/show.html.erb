@@ -1,56 +1,77 @@
-<div class="container">
-	<header class="row">
-		<div class="col-sm-12">
-			<%= notice %>
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<%= notice %>
 
-			<div class="btn-group pull-right">
-				<% if @topic.user == current_user %>
-					<%= link_to topic_path(@topic), method: "delete", class: "btn btn-danger btn-sm" do %>
-						<i class="glyphicon glyphicon-remove"></i>
-						Delete Topic
-					<% end %>
+				<% if false %>
+					<div class="btn-group pull-right">
+						<% if @topic.user == current_user %>
+							<%= link_to topic_path(@topic), method: "delete", class: "btn btn-danger btn-sm" do %>
+								<i class="glyphicon glyphicon-remove"></i>
+								Delete Topic
+							<% end %>
+						<% end %>
+					</div>
+				<% end %>
+
+				<h1><%= @topic.title %></h1>
+				<p class="countDown"><span>Ends in </span><span class="time">12 hours 32 minutes</span></p>
+
+				<% if false %>
+					<p class="topicMetaInfo">
+						<span class="text-muted">submitted <%= time_ago_in_words(@topic.created_at) %> ago by</span>
+						<%= link_to @topic.user.name, @topic.user %>
+					</p>
+				<% end %>
+
+				<% if false %>
+					<%= render partial: "vote_buttons_and_form", locals: {topic: @topic} %>
 				<% end %>
 			</div>
-
-			<br/>
-
-			<h1><%= @topic.title %></h1>
-			<p class="topicMetaInfo">
-				<span class="text-muted">submitted <%= time_ago_in_words(@topic.created_at) %> ago by</span>
-				<%= link_to @topic.user.name, @topic.user %>
-			</p>
-
-			<%= render partial: "vote_buttons_and_form", locals: {topic: @topic} %>
-
 		</div>
-	</header>
-	<main class="row">
-		<div class="col-sm-6">
-			<h3 class="greenText">Agree</h3>
-			<section class="comments">
-				<% if @agree_comments.count > 0 %>
-					<% @topic.comments.where(is_agree: true).each do |c| %>
-						<%= render partial: "comment", locals: {is_agree: true, c: c} %>
+	</div>
+</header>
+
+<section class="voteButtonsContainer">
+	<div class="container clearfix">
+		<div class="agreeVoteContainer">
+			<button class="agree btn btn-default smallCaps">agree <small>312</small></button>
+		</div>
+		<div class="disagreeVoteContainer">
+			<button class="disagree btn btn-default smallCaps">disagree <small>560</small></button>
+		</div>
+	</div>
+</section>
+
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<section class="comments">
+					<% if @agree_comments.count > 0 %>
+						<% @topic.comments.where(is_agree: true).each do |c| %>
+							<%= render partial: "comment", locals: {is_agree: true, c: c} %>
+						<% end %>
+					<% else %>
+						<h4 class="text-muted">No comments for "agree".</h4>
 					<% end %>
-				<% else %>
-					<h4 class="text-muted">No comments for "agree".</h4>
-				<% end %>
-			</div>
-		</section>
-		<div class="col-sm-6">
-			<h3 class="redText">Disagree</h3>
-			<section class="comments">
-				<% if @disagree_comments.count > 0 %>
-					<% @topic.comments.where(is_agree: false).each do |c| %>
-						<%= render partial: "comment", locals: {is_agree: false, c: c} %>
-					<% end %>
-				<% else %>
-					<h4 class="text-muted">No comments for "disagree".</h4>
-				<% end %>
+				</div>
 			</section>
+			<div class="col-sm-6">
+				<section class="comments">
+					<% if @disagree_comments.count > 0 %>
+						<% @topic.comments.where(is_agree: false).each do |c| %>
+							<%= render partial: "comment", locals: {is_agree: false, c: c} %>
+						<% end %>
+					<% else %>
+						<h4 class="text-muted">No comments for "disagree".</h4>
+					<% end %>
+				</section>
+			</div>
 		</div>
-	</main>
-</div>
+	</div>
+</main>
 
 <!-- Add comment modal -->
 <div class="modal fade" id="addCommentModal">
