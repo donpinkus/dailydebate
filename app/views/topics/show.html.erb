@@ -35,16 +35,19 @@
 	</div>
 </header>
 
+<% agree_active_class = current_user && @topic.agree_votes.where(is_agree: true, user_id: current_user.id).count > 0 ? 'active' : '' %>
+<% disagree_active_class = current_user && @topic.agree_votes.where(is_agree: false, user_id: current_user.id).count > 0 ? 'active' : '' %>
+
 <section class="voteButtonsContainer">
 	<div class="container clearfix">
 		<div class="agreeVoteContainer">
-			<button class="topicAgreeBtn btn btn-default smallCaps" data-is-agree="1">
-				agree <small class="agreeVoteCount">312</small>
+			<button class="topicAgreeBtn btn btn-default smallCaps <%= agree_active_class %>" data-is-agree="1">
+				agree <small class="agreeVoteCount"><%= @topic.agree_votes.where(is_agree: true).count %></small>
 			</button>
 		</div>
 		<div class="disagreeVoteContainer">
-			<button class="topicDisagreeBtn btn btn-default smallCaps" data-is-agree="0">
-				disagree <small class="disagreeVoteCount">560</small>
+			<button class="topicDisagreeBtn btn btn-default smallCaps <%= disagree_active_class %>" data-is-agree="0">
+				disagree <small class="disagreeVoteCount"><%= @topic.agree_votes.where(is_agree: true).count %></small>
 			</button>
 		</div>
 	</div>
