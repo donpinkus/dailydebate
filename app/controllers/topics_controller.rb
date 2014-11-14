@@ -16,12 +16,19 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+    # If daily topic, redirect
+    if @topic == Topic.first
+      redirect_to root_path
+    end
+
     @agree_comments = @topic.comments.where(is_agree: true)
     @disagree_comments = @topic.comments.where(is_agree: false)
   end
 
   def daily
     @topic = Topic.first
+    gon.topic = @topic
+
     @agree_comments = @topic.comments.where(is_agree: true)
     @disagree_comments = @topic.comments.where(is_agree: false)
 
