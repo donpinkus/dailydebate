@@ -56,6 +56,8 @@ gem 'seed_dump'
 gem 'compass'
 gem 'modular-scale'
 
+gem 'time_difference'
+
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'

@@ -16,7 +16,9 @@
 				<% end %>
 
 				<h1><%= @topic.title %></h1>
-				<p class="countDown"><span>Ends in </span><span class="time">12 hours 32 minutes</span></p>
+				<p class="countDown"><span>Ends in </span><span class="time">
+					<%= pluralize(@time_left[:hours], "hours") %> <%= pluralize(@time_left[:minutes], "minutes") %></span>
+				</p>
 
 				<% if false %>
 					<p class="topicMetaInfo">

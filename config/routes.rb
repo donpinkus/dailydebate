@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   get 'user/create'
 
-  resources :categories
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # Routes for FB omniauth
@@ -17,13 +15,15 @@ Rails.application.routes.draw do
 
   get 'category/:category_name', to: "topics#index"
 
+  resources :categories
+
   resources :comments
 
   resources :topics
 
   resources :users
 
-  root "topics#index"
+  root "topics#daily"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

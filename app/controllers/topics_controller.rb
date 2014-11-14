@@ -20,6 +20,22 @@ class TopicsController < ApplicationController
     @disagree_comments = @topic.comments.where(is_agree: false)
   end
 
+  def daily
+    @topic = Topic.first
+    @agree_comments = @topic.comments.where(is_agree: true)
+    @disagree_comments = @topic.comments.where(is_agree: false)
+
+    if Time.now.hour >= 10
+      end_time = Time.new(Time.now.year, Time.now.month, Time.now.day + 1, 10)
+    else
+      end_time = Time.new(Time.now.year, Time.now.month, Time.now.day, 10)
+    end
+
+    @time_left = TimeDifference.between(Time.now, end_time).in_general
+
+    render :show
+  end
+
   # GET /topics/new
   def new
     @topic = Topic.new
