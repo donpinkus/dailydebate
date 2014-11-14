@@ -42,6 +42,8 @@
 			<button class="disagree btn btn-default smallCaps">disagree <small>560</small></button>
 		</div>
 	</div>
+	<div class="agreeBorder"></div>
+	<div class="disagreeBorder"></div>
 </section>
 
 <main>
@@ -54,7 +56,8 @@
 							<%= render partial: "comment", locals: {is_agree: true, c: c} %>
 						<% end %>
 					<% else %>
-						<h4 class="text-muted">No comments for "agree".</h4>
+						<br/>
+						<h5 class="text-muted">No comments for "agree".</h5>
 					<% end %>
 				</div>
 			</section>
@@ -65,7 +68,8 @@
 							<%= render partial: "comment", locals: {is_agree: false, c: c} %>
 						<% end %>
 					<% else %>
-						<h4 class="text-muted">No comments for "disagree".</h4>
+						<br/>
+						<h5 class="text-muted">No comments for "disagree".</h5>
 					<% end %>
 				</section>
 			</div>

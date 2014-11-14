@@ -1,5 +1,3 @@
-//= require topics_index
-
 $(document).ready(function(){
   $('.new_comment textarea').focus(function(){
     $(this).closest('form').find('.submitCommentBtn').removeClass('hidden');
@@ -22,4 +20,16 @@ $(document).ready(function(){
     });
   });
 
+  // Subscribe
+  $('.subscribeBtn').click(function(){
+    // Show email input
+    $('.subscribeBtn').addClass('hidden');
+    $('.subscribeForm').removeClass('hidden').find('input').focus();
+  });
+
+  $('.subscribeForm').on('ajax:complete', function(){
+    // Show success text.
+    $('.subscribeForm').addClass('hidden');
+    $('.subscribeSuccessMsg').removeClass('hidden');
+  });
 });

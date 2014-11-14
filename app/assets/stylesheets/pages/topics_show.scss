@@ -26,6 +26,10 @@ body, html {
 			background: hsla(0, 0%, 100%, 0.1);
 		}
 	}
+	.subscribeSuccessMsg {
+		margin-top: 1rem;
+		color: white;
+	}
 }
 
 header {
@@ -77,10 +81,16 @@ header {
 			color: $red;
 		}
 	}
-	.agreeVoteContainer {
+	.agreeBorder {
+		width: 50%;
+		float: left;
+		clear: none;
 		border-bottom: 2px solid $green;
 	}
-	.disagreeVoteContainer {
+	.disagreeBorder {
+		width: 50%;
+		float: left;
+		clear: none;
 		border-bottom: 2px solid $red;
 	}
 }

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'user/create'
+
   resources :categories
 
   devise_for :admin_users, ActiveAdmin::Devise.config

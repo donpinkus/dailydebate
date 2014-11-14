@@ -17,21 +17,23 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <% if current_user %>
-              <a href="#"
-                class="dropdown-toggle"
-                data-toggle="dropdown">
+              <a href="#">
                 <img class="avatar profileAvatar" src="https://graph.facebook.com/<%= current_user.uid %>/picture?width=64&height=64" height="22px">
-                &nbsp; <%= current_user.name %>
+                &nbsp;
+                <%= current_user.name %>
               </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">My Statements</a></li>
-                <li class="divider"></li>
-                <li><a href="/signout">Log Out</a></li>
-              </ul>
             <% else %>
               <div class="nav navbar-nav navbar-right">
-                <%= link_to 'Subscribe', new_topic_path, class: "btn btn-primary navbar-btn postOpinionBtn" %>
+                <%= link_to 'Subscribe', "#", class: "btn btn-primary navbar-btn subscribeBtn" %>
               </div>
+              <%= form_for User.new, remote: true, html: {class: "navbar-form navbar-right hidden subscribeForm"} do |f| %>
+                <div class="form-group">
+                  <%= f.text_field :email, class: "form-control", placeholder: "me@gmail.com" %>
+                  <%= f.hidden_field :is_subscribed, value: "true" %>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              <% end %>
+              <p class="subscribeSuccessMsg hidden">You're subscribed!</p>
             <% end %>
           </li>
         </ul>
