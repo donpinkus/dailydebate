@@ -5,21 +5,21 @@ $baseline-devisions: 4;
   @return $baseline * $divisions / $baseline-divisions;
 }
 
-@for $i from 0 through 35{
-  $bl: baseline($i);
-  .u-paddingTop-#($i) {
-    padding-top: $bl !important;
-  }
-  .u-paddingBottom-#($i) {
-    padding-bottom: $bl !important;
-  }
-  .u-paddingVertical-#($i) {
-    padding-top: $bl !important;
-    padding-bottom: $bl !important;
-  }
-  // do margins
-  // do lineheight
-  .u-lineHeight-#($i) {
-    line-height: $bl !important;
-  }
-}
+// @for $i from 0 through 35{
+//   $bl: baseline($i);
+//   .u-paddingTop-#($i) {
+//     padding-top: $bl !important;
+//   }
+//   .u-paddingBottom-#($i) {
+//     padding-bottom: $bl !important;
+//   }
+//   .u-paddingVertical-#($i) {
+//     padding-top: $bl !important;
+//     padding-bottom: $bl !important;
+//   }
+//   // do margins
+//   // do lineheight
+//   .u-lineHeight-#($i) {
+//     line-height: $bl !important;
+//   }
+// }
