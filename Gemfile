@@ -61,6 +61,9 @@ gem 'time_difference'
 
 gem 'bugsnag'
 
+# Serve assets in prod
+gem 'rails_12factor', group: :production
+
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
