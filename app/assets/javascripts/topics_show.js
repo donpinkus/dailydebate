@@ -6,7 +6,7 @@ function handleVoteActionBtnClick(){
     $(this).popover({
       content: "<div>\
       <a href='/auth/facebook' class='btn btn-primary btn-block fbAuthBtn'>\
-        <img src='/assets/facebook_icon.png' height='32'>\
+        <img src='/facebook_icon.png' height='32'>\
         sign in with <strong>facebook</strong>\
       </a>\
       <br/>\
