@@ -7,6 +7,7 @@ class CreateComments < ActiveRecord::Migration
       t.boolean :is_agree, index: true
       t.integer :reply_to, default: 0
       t.integer :votes_count, default: 0
+      t.integer :votes_count_override
 
       t.timestamps
     end

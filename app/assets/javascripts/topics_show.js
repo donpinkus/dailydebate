@@ -5,11 +5,13 @@ function handleVoteActionBtnClick(){
   if (!gon.user) {
     $(this).popover({
       content: "<div>\
-      <a href='/auth/facebook' class='btn btn-primary'>sign in with facebook</a>\
+      <a href='/auth/facebook' class='btn btn-primary btn-block fbAuthBtn'>\
+        <img src='/assets/facebook_icon.png' height='32'>\
+        sign in with <strong>facebook</strong>\
+      </a>\
       <br/>\
-      <br/>\
-      <p>Only 1 vote per person, <br/> so we need to know who you are!</p>\
-      <p>We will never post on your wall, or share your information.</p>\
+      <p>Only 1 vote per person, <br/> so we need to know who you are.</p>\
+      <p>We will <strong>never</strong> post on your wall or share your information.</p>\
       </div>",
       html: "true",
       placement: "bottom",
