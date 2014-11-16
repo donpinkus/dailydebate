@@ -17,7 +17,7 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     # If daily topic, redirect
-    if @topic == Topic.first
+    if @topic == Topic.where(is_daily_topic: true).first
       redirect_to root_path
     end
 
@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
   end
 
   def daily
-    @topic = Topic.first
+    @topic = Topic.where(is_daily_topic: true).first
     gon.topic = @topic
 
     @agree_comments = @topic.comments.where(is_agree: true)

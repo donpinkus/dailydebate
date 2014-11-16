@@ -1,0 +1,11 @@
+<footer class="siteFooter">
+  <div class="container">
+    <a href="/about">About</a>
+    <a href="/topics">Archive</a>
+    <% if current_user %>
+      <a href="/signout">Sign Out</a>
+    <% else %>
+      <a href="/auth/facebook">Sign In</a>
+    <% end %>
+  </div>
+</footer>

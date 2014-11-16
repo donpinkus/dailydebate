@@ -33,93 +33,15 @@
 
 // @import 'components/**/*';
 
-@font-face {
-  font-family: 'SourceSansPro';
-  src:font-url('SourceSansPro-Black.otf.woff');
-  font-weight: 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'SourceSansPro';
-  src:font-url('SourceSansPro-BlackIt.otf.woff');
-  font-weight: 900;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src:font-url('SourceSansPro-Bold.otf.woff');
-  font-weight: 800;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'SourceSansPro';
-  src:font-url('SourceSansPro-BoldIt.otf.woff');
-  font-weight: 800;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src:font-url('SourceSansPro-It.otf.woff');
-  font-weight: 400;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'SourceSansPro';
-  src:font-url('SourceSansPro-Regular.otf.woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src:font-url('SourceSansPro-ExtraLight.otf.woff');
-  font-weight: 100;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'SourceSansPro';
-  src:font-url('SourceSansPro-ExtraLightIt.otf.woff');
-  font-weight: 100;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src: font-url('SourceSansPro-Light.otf.woff');
-  font-weight: 200;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'SourceSansPro';
-  src: font-url('SourceSansPro-LightIt.otf.woff');
-  font-weight: 200;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src:font-url('SourceSansPro-Semibold.otf.woff');
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'SourceSansPro';
-  src: font-url('SourceSansPro-SemiboldIt.otf.woff');
-  font-weight: 600;
-  font-style: italic;
-}
-
-$green: #8dc44e;
-$red: #f36c60;
-
-.greenText {
-  color: $green;
-}
-
-.redText {
-  color: $red;
+.siteFooter {
+  margin-top: 2rem;
+  border-top: 1px solid hsla(0,0,0,0.1);
+  padding-top: 1rem;
+  text-align: center;
+  a {
+    margin: 0 20px 20px 20px;
+    color: $light-blue-gray;
+  }
 }
 
 .smallCaps {
@@ -155,8 +77,6 @@ $red: #f36c60;
 .topNavSpacer {
   height: 4rem;
 }
-
-
 
 .voteActionsContainer {
   .topicActions {
@@ -208,4 +128,9 @@ $red: #f36c60;
     padding-bottom: 9px;
   }
 }
+
+
+
+
+
 

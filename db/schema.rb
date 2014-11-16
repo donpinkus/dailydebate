@@ -88,9 +88,10 @@ ActiveRecord::Schema.define(version: 20141027185211) do
   add_index "topic_categories", ["topic_id"], name: "index_topic_categories_on_topic_id"
 
   create_table "topics", force: true do |t|
-    t.integer  "user_id",     default: 0
+    t.integer  "user_id",        default: 0
     t.integer  "category_id"
     t.text     "title"
+    t.boolean  "is_daily_topic"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
