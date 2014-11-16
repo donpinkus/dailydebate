@@ -67,9 +67,10 @@ ActiveRecord::Schema.define(version: 20141027185211) do
   create_table "comments", force: true do |t|
     t.text     "content"
     t.integer  "topic_id"
-    t.integer  "user_id",    default: 0
+    t.integer  "user_id",     default: 0
     t.boolean  "is_agree"
-    t.integer  "reply_to",   default: 0
+    t.integer  "reply_to",    default: 0
+    t.integer  "votes_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
