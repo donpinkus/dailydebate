@@ -42,12 +42,18 @@
 	<div class="container clearfix">
 		<div class="agreeVoteContainer">
 			<button class="topicAgreeBtn btn btn-default smallCaps <%= agree_active_class %>" data-is-agree="1">
-				agree <small class="agreeVoteCount"><%= @topic.agree_votes.where(is_agree: true).count %></small>
+				agree
+				<small class="agreeVoteCount">
+					<%= @topic.agree_votes_override ? @topic.agree_votes_override : @topic.agree_votes.where(is_agree: true).count %>
+				</small>
 			</button>
 		</div>
 		<div class="disagreeVoteContainer">
 			<button class="topicDisagreeBtn btn btn-default smallCaps <%= disagree_active_class %>" data-is-agree="0">
-				disagree <small class="disagreeVoteCount"><%= @topic.agree_votes.where(is_agree: false).count %></small>
+				disagree
+				<small class="disagreeVoteCount">
+					<%= @topic.disagree_votes_override ? @topic.disagree_votes_override : @topic.agree_votes.where(is_agree: false).count %>
+				</small>
 			</button>
 		</div>
 	</div>
