@@ -56,7 +56,10 @@ gem 'seed_dump'
 gem 'compass'
 gem 'modular-scale'
 
+# Get the time difference between two dates.
 gem 'time_difference'
+
+gem 'bugsnag'
 
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
