@@ -20,5 +20,11 @@
 	<%= yield %>
 
   <%= render "layouts/footer" %>
+
+  <%= render "layouts/google_analytics" %>
+  <%= render "layouts/mixpanel" %>
+  <script>
+    mixpanel.track("Testing");
+  </script>
 </body>
 </html>
