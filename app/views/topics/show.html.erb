@@ -47,7 +47,7 @@
 		</div>
 		<div class="disagreeVoteContainer">
 			<button class="topicDisagreeBtn btn btn-default smallCaps <%= disagree_active_class %>" data-is-agree="0">
-				disagree <small class="disagreeVoteCount"><%= @topic.agree_votes.where(is_agree: true).count %></small>
+				disagree <small class="disagreeVoteCount"><%= @topic.agree_votes.where(is_agree: false).count %></small>
 			</button>
 		</div>
 	</div>
