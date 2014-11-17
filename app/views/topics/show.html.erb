@@ -79,7 +79,7 @@
 
 				<section class="comments">
 					<% if @agree_comments.count > 0 %>
-						<% @topic.comments.where(is_agree: true).order(vote_count: :desc).each do |c| %>
+						<% @topic.comments.where(is_agree: true).order(votes_count: :desc).each do |c| %>
 							<%= render partial: "comment", locals: {c: c} %>
 						<% end %>
 					<% else %>
