@@ -8,5 +8,9 @@ class Comment < ActiveRecord::Base
     markdown = Redcarpet::Markdown.new(renderer, autolink: true, no_intra_emphasis: true)
     markdown.render(self.content)
   end
+
+  def vote_count
+    self.votes.count + self.votes_count_override
+  end
 end
 
