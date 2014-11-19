@@ -36,7 +36,7 @@
 <% disagree_active_class = current_user && @topic.agree_votes.where(is_agree: false, user_id: current_user.id).count > 0 ? 'active' : '' %>
 
 <section class="voteButtonsContainer">
-	<div class="container clearfix">
+	<div class="clearfix">
 		<div class="agreeVoteContainer">
 			<button class="topicAgreeBtn btn btn-default smallCaps <%= agree_active_class %>" data-is-agree="1">
 				agree

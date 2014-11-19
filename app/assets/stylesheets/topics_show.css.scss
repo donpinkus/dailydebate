@@ -13,6 +13,10 @@ body, html {
 	background: #F9F9F9;
 }
 
+h1, h2, h3, h4, strong {
+	-webkit-font-smoothing: antialiased;
+}
+
 #dailyTopNav {
 	background: #007cd7;
 	border: 0;
@@ -23,7 +27,6 @@ body, html {
 	}
 	.navbar-brand {
 		font-size: ms(1);
-		font-family: serif;
 	}
 	.btn {
 		background: none;
@@ -66,6 +69,12 @@ header {
 
 .voteButtonsContainer {
 	background: #edeeef;
+	.agreeVoteContainer {
+		background: $green;
+	}
+	.disagreeVoteContainer {
+		background: $red;
+	}
 	.agreeVoteContainer, .disagreeVoteContainer {
 		width: 50%;
 		float: left;
