@@ -24,7 +24,9 @@
   <%= render "layouts/google_analytics" %>
   <%= render "layouts/mixpanel" %>
   <script>
-    mixpanel.track("Testing");
+    if (gon && gon.user) {
+      mixpanel.identify(gon.user.id);
+    }
   </script>
 </body>
 </html>

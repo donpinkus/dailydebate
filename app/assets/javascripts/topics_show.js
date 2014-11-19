@@ -63,11 +63,68 @@ function handleVoteActionBtnClick(){
   });
 }
 
+function attachMixPanelTrackers(){
+  // Page view
+  mixpanel.track("Topic page view", { "Topic": gon.topic.title });
+
+  // Topic voting
+  // Step 1. topic button clicked.
+  $('.topicAgreeBtn, .topicDisagreeBtn').click(function(){
+    mixpanel.track(
+      "Clicked Topic Vote",
+      {
+        "Is Agree": $(this).attr('data-is-agree'),
+        "Topic": gon.topic.title
+      }
+    );
+  });
+
+  // Step 2. comment form was typed in
+  $('#new_comment').submit(function(){
+    mixpanel.track(
+      "Submitted a comment",
+      { "Topic": gon.topic.title }
+    );
+  });
+
+  // Upvoted a comment
+  $('#upvote').submit(function(){
+    mixpanel.track(
+      "Upvoted a comment",
+      { "Topic": gon.topic.title }
+    );
+  });
+
+  // Subscribe flow
+  $('.subscribeBtn').click(function(){
+    mixpanel.track(
+      "Subscribe button clicked",
+      { "Topic": gon.topic.title }
+    );
+  });
+
+  $('#user_email').keypress(function(){
+    if ($('#user_email').val().length == 0) {
+      mixpanel.track(
+        "Entered a name into email subscribe field",
+        { "Topic": gon.topic.title }
+      );
+    }
+  });
+
+  $('#new_user').submit(function(){
+    mixpanel.track(
+      "Subscribed",
+      {
+        "Topic": gon.topic.title,
+        "email": $('#user_email').val()
+      }
+    );
+  });
+}
 
 $(document).ready(function(){
-  $('.new_comment textarea').focus(function(){
-    $(this).closest('form').find('.submitCommentBtn').removeClass('hidden');
-  })
+  attachMixPanelTrackers();
 
   // Topic voting
   $('.topicAgreeBtn, .topicDisagreeBtn').click(handleVoteActionBtnClick);
