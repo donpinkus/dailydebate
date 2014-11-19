@@ -91,7 +91,7 @@ header {
 			transition: all .2s;
 			width: 100px;
 			small {
-				font-size: ms(-0.3);
+				font-size: ms(-1);
 			}
 			&.active {
 				box-shadow: none;
@@ -140,7 +140,7 @@ header {
 
 	}
 	.comment {
-		margin: 1.5rem 0 0 0;
+		margin: 2rem 0 0 0;
 		font-size: 1rem;
 		.commentInfo {
 			margin-bottom: 0px;
