@@ -9,7 +9,7 @@ class Comment < ActiveRecord::Base
     markdown.render(self.content)
   end
 
-  def vote_count
+  def score
     self.votes.count + self.votes_count_override
   end
 end

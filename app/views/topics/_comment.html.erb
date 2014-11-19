@@ -2,7 +2,7 @@
   <p class="commentInfo">
     <% active_class = Vote.where(user: current_user, comment_id: c.id).exists? ? 'active' : '' %>
     <i class="upvote glyphicon glyphicon-chevron-up <%= active_class %>"></i>
-    <%= c.votes_count_override || c.votes.count %>
+    <%= c.score %>
     &nbsp;
     <%= link_to c.user.name, c.user %>
   </p>

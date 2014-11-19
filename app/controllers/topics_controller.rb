@@ -29,8 +29,9 @@ class TopicsController < ApplicationController
     @topic = Topic.where(is_daily_topic: true).first
     gon.topic = @topic
 
-    @agree_comments = @topic.comments.where(is_agree: true)
-    @disagree_comments = @topic.comments.where(is_agree: false)
+    @agree_comments = @topic.comments.where(is_agree: true).sort_by { |comment| -1 * comment.score }
+
+    @disagree_comments = @topic.comments.where(is_agree: false).sort_by { |comment| -1 * comment.score }
 
     if Time.now.hour >= 10
       end_time = Time.new(Time.now.year, Time.now.month, Time.now.day + 1, 10)
