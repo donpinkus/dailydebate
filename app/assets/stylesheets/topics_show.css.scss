@@ -69,36 +69,52 @@ header {
 
 .voteButtonsContainer {
 	background: #edeeef;
-	.agreeVoteContainer {
-		background: $green;
-	}
-	.disagreeVoteContainer {
-		background: $red;
-	}
 	.agreeVoteContainer, .disagreeVoteContainer {
 		width: 50%;
 		float: left;
 		clear: none;
 		text-align: center;
 		padding: 1rem 0;
-		.agree, .disagree {
+		.topicAgreeBtn, .topicDisagreeBtn {
+			border-radius: 0;
+			color: hsl(0, 100%, 100%);
 			font-size: ms(1.5);
+			-webkit-box-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.24);
+			-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+			box-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.24);
+			-webkit-font-smoothing: antialiased;
+			font-weight: 500;
 			padding-top: 1px;
 			padding-bottom: 4px;
-			border-color: black(15);
-			box-shadow: 0 1px 0px 0 calcShade(3);
-			text-shadow: 0 1px 0 calcTint(60);
-			background-image: linear-gradient(black(1), black(4));
+			border: none;
+			border-radius: 0;
+			transition: all .2s;
+			width: 100px;
 			small {
-				color: $gray;
-				font-size: ms(0);
+				font-size: ms(-0.3);
+			}
+			&.active {
+				box-shadow: none;
+				opacity: 0.6;
 			}
 		}
-		.agree {
-			color: $green;
+		.topicAgreeBtn {
+			background: $green;
+			&:not(.active):hover {
+				background: hsl(91, 89%, 43%);
+			}
+			&.active {
+				cursor: default;
+			}
 		}
-		.disagree {
-			color: $red;
+		.topicDisagreeBtn {
+			background: $red;
+			&:not(.active):hover {
+				background: hsl(357, 72%, 61%);
+			}
+			&.active {
+				cursor: default;
+			}
 		}
 	}
 	.agreeBorder {
@@ -126,7 +142,6 @@ header {
 	.comment {
 		margin: 1.5rem 0 0 0;
 		font-size: 1rem;
-		border-radius: 3px;
 		.commentInfo {
 			margin-bottom: 0px;
 			.upvote {
