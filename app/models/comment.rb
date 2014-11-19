@@ -10,7 +10,7 @@ class Comment < ActiveRecord::Base
   end
 
   def score
-    self.votes.count + self.votes_count_override
+    self.votes.count.to_i + self.votes_count_override.to_i
   end
 end
 
