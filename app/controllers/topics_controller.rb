@@ -29,6 +29,10 @@ class TopicsController < ApplicationController
     @topic = Topic.where(is_daily_topic: true).first
     gon.topic = @topic
 
+    @total_votes = @topic.agree_votes_override.to_i + @topic.disagree_votes_override.to_i + @topic.agree_votes.count
+    @agree_count = @topic.agree_votes_override.to_i + @topic.agree_votes.where(is_agree: true).count
+    @disagree_count = @topic.disagree_votes_override.to_i + @topic.agree_votes.where(is_agree: false).count
+
     @agree_comments = @topic.comments.where(is_agree: true).sort_by { |comment| -1 * comment.score }
 
     @disagree_comments = @topic.comments.where(is_agree: false).sort_by { |comment| -1 * comment.score }
