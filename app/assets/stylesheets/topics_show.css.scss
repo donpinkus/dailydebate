@@ -78,7 +78,7 @@ header {
 		.topicAgreeBtn, .topicDisagreeBtn {
 			border-radius: 0;
 			color: hsl(0, 100%, 100%);
-			font-size: ms(1.5);
+			font-size: 19px;
 			-webkit-box-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.24);
 			-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
 			box-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.24);
@@ -89,8 +89,9 @@ header {
 			border: none;
 			border-radius: 0;
 			transition: all .2s;
-			width: 120px;
+			width: 150px;
 			small {
+				margin-left: 5px;
 				font-size: 13px;
 			}
 			&.active {
@@ -99,18 +100,24 @@ header {
 			}
 		}
 		.topicAgreeBtn {
-			background: $green;
+			border: 1px solid $green;
+			color: hsl(0, 0%, 34%);
+			border-radius: 3px;
 			&:not(.active):hover {
-				background: hsl(91, 89%, 43%);
+				background: $green;
+				color: white;
 			}
 			&.active {
 				cursor: default;
 			}
 		}
 		.topicDisagreeBtn {
-			background: $red;
+			border: 1px solid $red;
+			color: hsl(0, 0%, 34%);
+			border-radius: 3px;
 			&:not(.active):hover {
-				background: hsl(357, 72%, 61%);
+				background: $red;
+				color: white;
 			}
 			&.active {
 				cursor: default;
