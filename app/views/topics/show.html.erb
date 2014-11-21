@@ -41,7 +41,7 @@
 			<button class="topicAgreeBtn btn btn-default smallCaps <%= agree_active_class %>" data-is-agree="1">
 				agree
 				<small class="agreeVoteCount">
-					<%= number_to_percentage((@agree_count.to_f / @total_votes.to_f) * 100, precision: 0) %>
+					<%= @agree_count %>
 				</small>
 			</button>
 		</div>
@@ -49,7 +49,7 @@
 			<button class="topicDisagreeBtn btn btn-default smallCaps <%= disagree_active_class %>" data-is-agree="0">
 				disagree
 				<small class="disagreeVoteCount">
-					<%= number_to_percentage((@disagree_count.to_f / @total_votes.to_f) * 100, precision: 0) %>
+					<%= @disagree_count %>
 				</small>
 			</button>
 		</div>
