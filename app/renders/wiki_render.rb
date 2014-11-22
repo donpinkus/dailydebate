@@ -16,11 +16,11 @@ class WikiRender < Redcarpet::Render::HTML
 
   def postprocess(full_document)
     full_document.gsub!(/(\@([\w]+))/) do
-      timeline = Timeline.where(id: $2).try(:first)
-      timeline ||= Timeline.where('title LIKE ?', $2).try(:first)
+      user = User.where(id: $2).try(:first)
+      user ||= User.where('name LIKE ?', $2).try(:first)
 
-      if timeline
-        ActionController::Base.helpers.link_to(timeline.title, timeline)
+      if user
+        ActionController::Base.helpers.link_to(user.name, user)
       else
         $1
       end
