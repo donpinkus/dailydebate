@@ -77,7 +77,7 @@ header {
 		padding: 1rem 0;
 		.topicAgreeBtn, .topicDisagreeBtn {
 			border-radius: 0;
-			color: hsl(0, 100%, 100%);
+			color: hsl(0, 0%, 34%);
 			font-size: 19px;
 			-webkit-box-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.24);
 			-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
@@ -87,10 +87,13 @@ header {
 			padding-top: 1px;
 			padding-bottom: 4px;
 			border: none;
-			border-radius: 0;
+			border-radius: 3px;
 			transition: all .2s;
 			width: 150px;
-			small {
+			.badge {
+				border: 1px solid gray;
+				background: none;
+				color: hsl(0, 0%, 34%);
 				margin-left: 5px;
 				font-size: 13px;
 			}
@@ -101,11 +104,13 @@ header {
 		}
 		.topicAgreeBtn {
 			border: 1px solid $green;
-			color: hsl(0, 0%, 34%);
-			border-radius: 3px;
 			&:not(.active):hover {
 				background: $green;
 				color: white;
+				.badge {
+					border-color: white;
+					color: white;
+				}
 			}
 			&.active {
 				cursor: default;
@@ -113,11 +118,13 @@ header {
 		}
 		.topicDisagreeBtn {
 			border: 1px solid $red;
-			color: hsl(0, 0%, 34%);
-			border-radius: 3px;
 			&:not(.active):hover {
 				background: $red;
 				color: white;
+				.badge {
+					border-color: white;
+					color: white;
+				}
 			}
 			&.active {
 				cursor: default;
